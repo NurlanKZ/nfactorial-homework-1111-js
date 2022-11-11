@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework06</title>
+</head>
+<body>
+    <!-- Task 02 -->
+    <button class="btn">Click here</button>
+    <!-- Запускаются второй и третий. Но поведение очень странное. EventListener добавляется,
+    но при нажатии удаляется и функция внутри него не выполняется. Чтобы это понять я проверил
+    еще два варианта. Если добавить второй remove, они оба не выполняются, а add начинает работать.
+    Затем я убрал addEventListener и тогда removeEventListener тоже не работал. Не совсем ясна
+    логика, но я понял, что несколько add и remove подряд могут мешать друг-другу.-->
+
+    <script>
+        const button = document.getElementsByClassName("btn")[0];
+        button.addEventListener("click", () => alert("3")); // changed "1" to "3" for clarity
+        button.removeEventListener("click", () => alert("1"));
+        // button.removeEventListener("click", () => alert("1"));
+        button.onclick = () => alert(2);
+    </script>
+</body>
+</html>
